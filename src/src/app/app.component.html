@@ -1,0 +1,13 @@
+<hello name="{{ name }}"></hello>
+{{myForm.value | json}}
+{{myForm.errors}}
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <app-input-compnent formControlName="myInput" type='number' placeholder='number'></app-input-compnent>
+  {{ myForm.controls.myInput.errors | json }}
+  <input type="submit" value="Submit" [disabled]="!myForm.valid && !myForm.dirty">
+</form>
+{{ !myForm.valid || !myForm.dirty }}
+
+<p>
+  Start editing to see some magic happen :)
+</p>
